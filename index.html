@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle's Top Amazon Picks</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 10px;
+      margin: 0;
+      color: #333;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      font-size: 1.5rem;
+    }
+    .banner {
+      text-align: center;
+      padding: 12px;
+      margin-bottom: 20px;
+      background: #2e7d32;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 6px;
+    }
+    .product {
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+    .product img {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto 10px;
+      border: 3px solid #2e7d32;
+      border-radius: 12px;
+      background: #e8f5e9;
+      padding: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product a:hover img {
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+    }
+    .product h2 {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #1a73e8;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    }
+    .product p {
+      font-size: 0.95rem;
+    }
+    .stars {
+      text-align: center;
+      margin: 6px 0;
+      font-size: 2.4rem;
+      color: gold;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .badges {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .badge {
+      background-color: #ff5722;
+      padding: 4px 8px;
+      margin: 2px;
+      display: inline-block;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .product a.cta-button {
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin: 12px auto 0;
+      color: #ffffff;
+      background: #000;
+      padding: 14px 24px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      width: fit-content;
+      border-radius: 50px;
+      border: 3px solid #39ff14;
+      box-shadow: 0 0 18px #39ff14;
+      text-shadow: 0 0 6px #39ff14;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    }
+    .product a.cta-button:hover {
+      animation: bounce 0.6s ease;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 28px #66ff66;
+      background: #111;
+    }
+    .product a.cta-button:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 12px #33cc33;
+      background: #222;
+    }
+    .product a.cta-button::before {
+      content: "";
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      z-index: 0;
+      border-radius: 60px;
+      background: linear-gradient(60deg, #39ff14, #00ffcc, #66ff66);
+      background-size: 300% 300%;
+      animation: glowBorder 3s ease infinite;
+      filter: blur(6px);
+      pointer-events: none;
+    }
+    .product a.cta-button span.sparkle {
+      position: relative;
+      display: inline-block;
+      animation: sparkle 1.4s infinite linear;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      padding-top: 20px;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.25rem; }
+      .product h2 { font-size: 1rem; }
+      .product p, .product a { font-size: 0.9rem; }
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-4px); }
+    }
+    @keyframes glowBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes sparkle {
+      0%, 100% { text-shadow: 0 0 8px #fff, 0 0 12px #0f0; }
+      50% { text-shadow: 0 0 4px #39ff14, 0 0 16px #0f0; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 90,
+        origin: { y: 0.6 },
+        scalar: 1.2,
+        zIndex: 200
+      });
+    }
+    window.onload = () => {
+      setTimeout(launchConfetti, 500);
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">Every purchase supports Kyle's small business — thank you!</div>
+    <h1>Support Kyle — Shop These Amazon Favorites</h1>
+    <div class="product">
+      <a href="https://www.amazon.com/Soundcore-Titanium-Technology-Waterproof-Bluetooth/dp/B08LQNL42Z/ref=sr_1_1?crid=LZNY35KXWRX7" target="_blank">
+        <img src="https://res.cloudinary.com/dmqzgmnlr/image/upload/v1746222163/81C42fnBvgL._AC_SL1500__a9q3cj.jpg" alt="Anker Motion Boom Speaker">
+      </a>
+      <h2>Soundcore Anker Motion Boom Bluetooth Speaker</h2>
+      <div class="stars">★★★★★</div>
+      <div class="badges">
+        <span class="badge">Best Seller</span>
+        <span class="badge">Top Rated</span>
+      </div>
+      <p>Waterproof speaker with BassUp tech, 24H playtime, and a rugged portable design for beach, pool, and travel.</p>
+      <a href="https://www.amazon.com/Soundcore-Titanium-Technology-Waterproof-Bluetooth/dp/B08LQNL42Z/ref=sr_1_1?crid=LZNY35KXWRX7" target="_blank" class="cta-button" onclick="launchConfetti()"><span class="sparkle">CLICK HERE!</span></a>
+    </div>
+    <div class="footer">Affiliate links used. As an Amazon Associate, Kyle earns from qualifying purchases.</div>
+  </div>
+</body>
+</html>
