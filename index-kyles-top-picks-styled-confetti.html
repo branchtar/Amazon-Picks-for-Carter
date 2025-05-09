@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle's Top Amazon Picks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    .product {
+      margin-bottom: 30px;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
+    .product img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      border: 3px solid #2e7d32;
+      background: #e8f5e9;
+      padding: 4px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+    }
+    .product h2 {
+      font-size: 1.3rem;
+      color: #1a73e8;
+    }
+    .stars {
+      font-size: 1.5rem;
+      color: gold;
+    }
+    .badges {
+      margin: 8px 0;
+    }
+    .badge {
+      display: inline-block;
+      background: #ff5722;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin: 2px;
+      font-weight: bold;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      border: 3px solid #39ff14;
+      box-shadow: 0 0 18px #39ff14;
+      text-shadow: 0 0 6px #39ff14;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 16px;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 28px #66ff66;
+      background: #111;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js">
+    window.onload = () => {
+      setTimeout(launchConfetti, 500);
+    };
+    </script>
+
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  
+    window.onload = () => {
+      setTimeout(launchConfetti, 500);
+    };
+    </script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Support Kyle — Shop These Amazon Favorites</h1>
+
+    <div class="product">
+      <a href="https://amzn.to/3YZDpYX" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/71-WcOVoz-L._AC_SX569_.jpg" alt="Blooming Jelly Women's One Piece Swimsuit">
+      </a>
+      <h2>Blooming Jelly Women's One Piece Swimsuit</h2>
+      <div class="stars">★★★★★</div>
+      <div class="badges">
+        <span class="badge">Top Pick</span>
+        <span class="badge">Hot Summer Style</span>
+      </div>
+      <p>Stay stylish and confident this summer with this flattering, high-quality one-piece swimsuit. Perfect for beach days and pool parties!</p>
+      <a href="https://amzn.to/3YZDpYX" target="_blank" class="cta-button" onclick="launchConfetti()">
+        🍭 CLICK HERE!
+      </a>
+    </div>
+
+    <p style="text-align:center; color:#777; font-size:0.9rem;">Affiliate links included. As an Amazon Associate, Kyle earns from qualifying purchases.</p>
+  </div>
+</body>
+</html>
