@@ -7,71 +7,48 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: #f0f0f0;
             text-align: center;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
+            padding: 50px;
         }
         h1 {
-            margin-top: 40px;
-            font-size: 2.5em;
-        }
-        .button {
-            display: inline-block;
-            margin: 20px;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: #fff;
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #333;
         }
         img {
-            max-width: 300px;
-            margin-top: 30px;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
         }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(to right, #ff5e62, #ff9966);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body onload="launchConfetti()">
     <h1>Carter's Amazon Picks 🎉</h1>
-    <a href="https://amzn.to/4macoeY" class="button" target="_blank">Check It Out!</a>
+    <p>Check out the latest favorite!</p>
+    <img src="https://images-na.ssl-images-amazon.com/images/I/71YxuCoQrcL._AC_SL1500_.jpg" alt="Amazon Pick Image">
     <br>
-    <img src="https://images-na.ssl-images-amazon.com/images/I/71YxuCoQrcL._AC_SL1500_.jpg" alt="Amazon Product">
+    <a class="cta-button" href="https://amzn.to/4macoeY" target="_blank">View on Amazon</a>
 
-    <canvas id="confetti-canvas"></canvas>
-
+    <!-- Confetti JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
         function launchConfetti() {
-            const duration = 5 * 1000;
-            const end = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 3,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }
-                });
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
         }
     </script>
 </body>
